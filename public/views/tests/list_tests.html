@@ -1,0 +1,31 @@
+<section ng-controller="TestsController" ng-init="findTestsForTestSet()">
+  <h1>{{setName}}</h1>
+  <h2>{{setDate | date:'medium'}}</h2>
+  <input type="search" ng-model="nameFilter" placeholder="filter test runs...">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>test</th>
+        <th>variant</th>
+        <th>start</th>
+        <th>end</th>
+        <th>status</th>
+        <th>error</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="animate-repeat" ng-repeat="test in tests | filter: nameFilter " ng-class="{error: test.state != 'PASSED', warning: test.state == 'NOT_AVAILABLE'}">
+        <td>{{test.name}}</td>
+        <td>{{test.variant}}</td>
+        <td>{{test.start | date:'medium'}}</td>
+        <td>{{test.end | date:'medium'}}</td>
+        <td>
+          <i class="icon-ok" ng-show="test.state == 'PASSED'" />
+          <i class="icon-remove" ng-show="test.state == 'FAILED'" />
+          {{test.state}}
+        </td>
+        <td>{{test.error.message}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

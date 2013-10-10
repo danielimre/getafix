@@ -1,0 +1,29 @@
+<section ng-controller="TestsController" ng-init="findTestSets()">
+  <h1 ng-hide="!testsets || testsets.length">No test has been run yet.</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th colspan="3">
+          <input type="search" ng-model="nameFilter" placeholder="filter test sets...">
+        </th>
+      </tr>
+      <tr>
+        <th>test set</th>
+        <th>last run</th>
+        <th>status (passed/failed)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="animate-repeat" ng-repeat="testset in testsets | filter: nameFilter " ng-class="{error: testset.state.failed != 0}">
+        <td><a ng-href="#!/testsets/{{testset._id}}">{{testset.name}}</a></td>
+        <td>{{testset.created | date:'medium'}}</td>
+        <td>
+          <i class="icon-ok" ng-show="testset.state.failed == 0" />
+          <i class="icon-remove" ng-show="testset.state.failed != 0" />
+          {{testset.state.passed}}/{{testset.state.failed}}
+          <progress percent="testset.state.passed / (testset.state.passed + testset.state.failed) * 100"></progress>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
