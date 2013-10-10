@@ -25,9 +25,11 @@ Main technologies used:
     $ npm install
 
   Export the node Path to load your lib into project (default in HEROKU)
+
     $ export NODE_PATH=lib
 
   We recommend using [Grunt](https://github.com/gruntjs/grunt-cli) to start the server:
+
     $ npm install -g grunt-cli
     $ grunt
 
@@ -40,6 +42,7 @@ Main technologies used:
     http://localhost:3000
 
 ## Configuration
+
 All configuration is specified in the [config](config/) folder, particularly the [config.js](config/config.js) file. 
 
 ### Environmental Settings
@@ -54,15 +57,16 @@ There are three environments provided by default, __development__, __test__, and
 
 To run with a different environment, just specify NODE_ENV as you call grunt:
 
-	$ NODE_ENV=test grunt
+    $ NODE_ENV=test grunt
 
 If you are using node instead of grunt, it is very similar:
 
-	$ NODE_ENV=test node server
+    $ NODE_ENV=test node server
 
 > NOTE: Running Node.js applications in the __production__ environment enables caching, which is disabled by default in all other environments.
 
 ## Credits
+
 Based on the great [MEAN stack](https://github.com/MikeFielden/The-MEAN-Stack).
 
 ## License
