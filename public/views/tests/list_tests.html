@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr class="animate-repeat" ng-repeat="test in tests | filter: nameFilter " ng-class="{error: test.state != 'PASSED', warning: test.state == 'NOT_AVAILABLE'}">
-        <td>{{test.name}}</td>
+        <td>{{test.name | shortPackage}}</td>
         <td>{{test.variant}}</td>
         <td>{{test.start | date:'medium'}}</td>
         <td>{{test.end | date:'medium'}}</td>

@@ -9,4 +9,21 @@
             return items;
         };
     });
+
+    window.app.filter('shortPackage', function() {
+        return function(text, separator) {
+            var result, packageParts;
+            separator = separator || '/'
+
+            if (text) {
+                result = '';
+                packageParts = text.split('.');
+                for (var i=0;i<packageParts.length-1;i++) {
+                    result += packageParts[i].substr(0,1) + separator;
+                }
+                result += packageParts[packageParts.length-1];
+            }
+            return result;
+        };
+    });
 }(window));
