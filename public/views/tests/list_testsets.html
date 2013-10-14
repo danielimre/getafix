@@ -28,12 +28,12 @@
             <span class="icon-arrow-up" ng-show="reverseOrder!=true && orderField=='state.failed'"></span>
             <span class="icon-arrow-down" ng-show="reverseOrder==true && orderField=='state.failed'"></span>
           </a>
-          <input type="checkbox" ng-model="showPassedFilter">show passed</input>
+          <input type="checkbox" ng-model="showPassedTests">show passed</input>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr class="animate-repeat" ng-repeat="testset in testsets|filter:nameFilter|stateFilter:showPassedFilter|orderBy:orderField:reverseOrder">
+      <tr class="animate-repeat" ng-repeat="testset in testsets|filter:nameFilter|state:showPassedTests|orderBy:orderField:reverseOrder">
         <td>
           <a ng-href="#!/testsets/{{testset._id}}">{{testset.name}}</a>
         </td>

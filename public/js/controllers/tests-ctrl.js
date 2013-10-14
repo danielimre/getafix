@@ -2,7 +2,7 @@ angular.module('getafix.tests').controller('TestsController', ['$scope', '$route
     $scope.global = Global;
     $scope.orderField = 'name';
     $scope.reverseOrder = false;
-    $scope.showPassedFilter = false;
+    $scope.showPassedTests = false;
 
     $scope.findTestSets = function() {
         $scope.testsets = Tests.all('sets').getList();
